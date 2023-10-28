@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using fammsApp.Data;
+using fammsApp.Entities;
+using fammsApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.Design;
 
 namespace fammsApp.Controllers
 {
@@ -6,9 +10,16 @@ namespace fammsApp.Controllers
     {
         public IActionResult Index()
         {
+            var model = new HomeIndexViewModel
+            {
+                Products = ProductData.ListProducts()
+            };
+            ProductData.ListProducts();
 
-            return View();
+            return View(model);
         }
+
+       
 
     }
 }
